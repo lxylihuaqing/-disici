@@ -6,6 +6,8 @@
 #include "CannonLayer.h"
 #include "TouchLayer.h"
 #include "Fish.h"
+#include "PanelLayer.h"
+#include "FishJoyData.h"
 
 USING_NS_CC;
 
@@ -19,12 +21,14 @@ public:
 	virtual ~GameScene();
 	void cannonAimAt(CCPoint target);
 	void cannonShootTo(CCPoint target);
+	void alterGold(int delta);
 protected:
 	BackgroundLayer* _backgroundLayer;
 	FishLayer* _fishLayer;
 	MenuLayer* _menuLayer;
 	CannonLayer* _cannonLayer;
 	TouchLayer* _touchLayer;
+	PanelLayer* _paneLayer;
 	void preloadResources(void);
 	bool checkOutCollisionBetweenFishesAndBullet(Bullet* bullet);
 	void checkOutCollision();
