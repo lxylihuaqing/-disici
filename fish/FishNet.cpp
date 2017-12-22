@@ -71,5 +71,5 @@ CCRect FishNet::getCollisionArea()
 {
 	CCSize size = _fishNetSprite->getContentSize();
 	CCPoint pos = getParent()->convertToWorldSpace(getPosition());
-	return CCRect(pos.x - size.width / 2, pos.y - size.height/2, size.width, size.height);
+	return CCRect(pos.x - size.width / 2, pos.y - size.height/2, size.width, size.height);//构造矩形，左下角横坐标=鱼的横坐标-鱼精灵的宽度/2，右下角纵坐标=鱼的纵坐标-鱼精灵的高度/2
 }

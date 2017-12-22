@@ -11,7 +11,7 @@ typedef enum{
 	k_Fish_Type_PufferS,	//刺豚
 	k_Fish_Type_Bream,		//蓝色
 	k_Fish_Type_Progy,		//红色
-	//k_Fish_Type_Count,
+	k_Fish_Type_Count,
 	k_Fish_Type_Chelonian,	//乌龟
 	k_Fish_Type_Lantern,	//灯笼鱼
 	k_Fish_Type_Ray,		//魔鬼鱼
@@ -23,7 +23,6 @@ typedef enum{
 	k_Fish_Type_JadePerch,	//宝石鱼
 	k_Fish_Type_MarlineFish,
 	k_Fish_Type_PufferB,	//刺豚受到攻击
-	k_Fish_Type_Count,
 }FishType;
 
 
@@ -40,10 +39,6 @@ public:
 	virtual ~Fish(void);
 	CCRect getCollisionArea();
 	void beCaught();
-	void moveTo(CCPoint destination);
-	void moveEnd();
-	CCSize getSize();
-	void aimAt(CCPoint target);
 protected:
 	CCSprite* _fishSprite;
 	void beCaught_CallFunc();

@@ -27,10 +27,6 @@ bool GameScene::init()
 		_touchLayer = TouchLayer::create();
 		CC_BREAK_IF(!_touchLayer);
 		this->addChild(_touchLayer);
-		_paneLayer = PanelLayer::create();
-		CC_BREAK_IF(!_paneLayer);
-		this->addChild(_paneLayer);
-		_paneLayer->getGoldCounter()->setNumber(FishJoyData::sharedFishJoyData()->getGold());
 		this->scheduleUpdate();
 		return true;
 	} while (0);
@@ -89,22 +85,8 @@ void GameScene::cannonAimAt(CCPoint target)
 
 void GameScene::cannonShootTo(CCPoint target)
 {
-	int cost=_cannonLayer->getWeapon()->getCannonType()+1;
-	if(FishJoyData::sharedFishJoyData()->getGold()>=cost)
-	{
-		_cannonLayer->shootTo(target);
-		alterGold(-cost);
-	}
-	
+	_cannonLayer->shootTo(target);
 }
-
-
-void GameScene::alterGold(int detla){
-	FishJoyData *fishJoyData=FishJoyData::sharedFishJoyData();
-	fishJoyData->alterGold(detla);
-	_paneLayer->getGoldCounter()->setNumber(fishJoyData->getGold());
-}
-
 
 bool GameScene::checkOutCollisionBetweenFishesAndBullet(Bullet* bullet)
 {
@@ -155,8 +137,6 @@ void GameScene::fishWillBeCaught(Fish* fish)
 	{
 		fish->beCaught();
 	}
-	int cost=3*fishType+1;
-		alterGold(cost);
 }
 
 void GameScene::checkOutCollisionBetweenFishesAndFishingNet(Bullet* bullet)

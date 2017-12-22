@@ -93,5 +93,5 @@ void Bullet::flyTo(CCPoint targetInWorldSpace, int type/* =0 */)
 
 CCPoint Bullet::getCollosionPoint()
 {
-	return getParent()->convertToWorldSpace(getPosition());
+	return getParent()->convertToWorldSpace(getPosition());//转换世界坐标
 }
