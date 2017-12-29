@@ -17,7 +17,7 @@ bool FishNet::init()
 
 	CCString *fileName = CCString::createWithFormat("weapon_net_%03d.png",1);
 	_fishNetSprite = CCSprite::createWithSpriteFrameName(fileName->getCString());
-	_fishNetSprite->setAnchorPoint(ccp(0.5, 1));
+	_fishNetSprite->setAnchorPoint(ccp(0.5, 0.5));
 	addChild(_fishNetSprite);
 	return true;
 }
@@ -45,7 +45,7 @@ float FishNet::getSpeed(int type)
 		speed = 410;
 		break;
 	case 6:
-		speed = 390;
+		speed = 450;
 		break;
 	default:
 		break;
@@ -71,5 +71,5 @@ CCRect FishNet::getCollisionArea()
 {
 	CCSize size = _fishNetSprite->getContentSize();
 	CCPoint pos = getParent()->convertToWorldSpace(getPosition());
-	return CCRect(pos.x - size.width / 2, pos.y - size.height/2, size.width, size.height);//构造矩形，左下角横坐标=鱼的横坐标-鱼精灵的宽度/2，右下角纵坐标=鱼的纵坐标-鱼精灵的高度/2
+	return CCRect(pos.x - size.width / 2, pos.y - size.height/2, size.width, size.height);
 }
